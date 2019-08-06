@@ -1,0 +1,46 @@
+{
+  "manifest_version": 2,
+  "name": "Построитель отчета @Yandex.Mail",
+  "version": "1.0.1",
+  "description": "Построитель отчета о выполненной работе по Yandex.Mail",
+  "icons": {
+    "16": "/icons/icon16.png",
+    "32": "/icons/icon32.png",
+    "48": "/icons/icon48.png",
+    "128": "/icons/icon128.png"
+  },
+//  "page_action": {
+//    "default_popup": "popup.html",
+//    "default_icon": {
+//      "16": "/icons/icon16.png",
+//      "32": "/icons/icon32.png",
+//      "48": "/icons/icon48.png",
+//      "128": "/icons/icon128.png"
+//    }
+//  },
+  "browser_action": {
+    "default_icon": {
+      "16": "/icons/icon16.png",
+      "32": "/icons/icon32.png",
+      "48": "/icons/icon48.png",
+      "128": "/icons/icon128.png"
+    },
+    "default_popup": "popup.html",
+    "default_title": "Построитель отчета @Yandex.Mail"
+  },
+  "permissions": [
+    "background",
+    "downloads",
+    "storage",
+    "tabs",
+    "activeTab",
+    "declarativeContent",
+    "*://mail.yandex.ru/*"
+  ]
+//  ,
+//  "background": {
+//    "scripts": ["background.js"],
+//    "persistent": false
+//  }
+}
+
