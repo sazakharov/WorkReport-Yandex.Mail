@@ -7,7 +7,7 @@ function show(){
 //   let tagName = "a";
 //    Array.from(document.getElementsByTagName(tagName)).map(a => a.innerText);
 //   `
-   
+
    scriptCode = `
    function getReport(){
 const content = document.getElementsByClassName("mail-MessageSnippet-Content");
@@ -42,9 +42,36 @@ getReport();
    chrome.tabs.executeScript({code: scriptCode}, function(result) {
      console.log(result[0]);
      document.querySelector("#container").innerHTML = "<pre>"+result[0]+"</pre>"
-     //setUp(result[0]);
    });
-  //alert(chrome.tabs)
+}
+
+function readFile(){
+  const url = chrome.runtime.getURL('draft/report-xlsx/xl/worksheets/sheet1.xml');
+  fetch(url, {
+        headers : {
+          'Content-Type': 'application/xml',
+          'Accept': 'application/xml'
+         }
+      })
+      .then(
+        function(response) {
+          if (response.status !== 200) {
+            console.log('Looks like there was a problem. Status Code: ' +
+              response.status);
+            return;
+          }
+
+          // Examine the text in the response
+          response.text().then(function(data) {
+            // Out into popup.html
+            (document.querySelector("#container").appendChild(document.createElement("pre"))).innerText = `data:\n${data}`;
+          });
+        }
+      )
+      .catch(function(err) {
+        console.log('Fetch Error :-S', err);
+      });
 }
 
 document.getElementById('do_report').onclick = show;
+document.getElementById('do_readfile').onclick = readFile;

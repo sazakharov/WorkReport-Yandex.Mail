@@ -36,6 +36,9 @@
     "activeTab",
     "declarativeContent",
     "*://mail.yandex.ru/*"
+  ],
+  "web_accessible_resources": [
+      "/*"
   ]
 //  ,
 //  "background": {
@@ -43,4 +46,3 @@
 //    "persistent": false
 //  }
 }
-
